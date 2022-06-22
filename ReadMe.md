@@ -1,4 +1,7 @@
 # This is Google Earth Engine-based code (It is updating and will be prepared soon...)
+
+<img src="https://user-images.githubusercontent.com/34648501/165074750-7f521139-5115-40c4-aaee-2c974080e1aa.jpg" width="425" height="300"/>
+
 # Here an Iterative clustering-based refinement procedure is developed to generate training samples for supervised Monitoring of Surface Water Extent...
 ## The paper will be published in Sustainibility (MDPI)
 
