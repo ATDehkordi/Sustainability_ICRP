@@ -3,5 +3,5 @@
 ## The paper will be published in Sustainibility (MDPI)
 
 
-<img src="https://user-images.githubusercontent.com/34648501/175025442-fbe28cc8-3b2d-46e6-b6c5-aaa59578f041.JPG" width="300" height="300"/> <img src="https://user-images.githubusercontent.com/34648501/175025750-e972a87d-1bbb-4de1-95c8-d74591ea79a6.JPG" width="425" height="300"/>
+<img src="https://user-images.githubusercontent.com/34648501/175025442-fbe28cc8-3b2d-46e6-b6c5-aaa59578f041.JPG" width="100" height="100"/> <img src="https://user-images.githubusercontent.com/34648501/175025750-e972a87d-1bbb-4de1-95c8-d74591ea79a6.JPG" width="200" height="100"/>
 
