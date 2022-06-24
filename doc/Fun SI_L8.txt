@@ -1,0 +1,11 @@
+var SI_L8 = function(image) {
+  var ndvi = image.normalizedDifference(['B5', 'B4']).rename('NDVI');
+  var mndwi = image.normalizedDifference(['B3', 'B6']).rename('MNDWI');
+  var evi = image.multiply(0.0001).expression('2.5*((NIR-RED)/(NIR+6*RED-7.5*BLUE+1))',
+                          {'NIR':image.multiply(0.0001).select('B5'),'RED':image.multiply(0.0001).select('B4'),'BLUE':image.multiply(0.0001).select('B2')}).rename('EVI').float()
+  var aweish = image.multiply(0.0001).expression('BLUE+2.5*GREEN-1.5*(NIR+SWIR1)-0.25*SWIR2',
+                                              {'NIR':image.multiply(0.0001).select('B5'),'GREEN':image.multiply(0.0001).select('B3'),'BLUE':image.multiply(0.0001).select('B2'),
+                                              'SWIR1':image.multiply(0.0001).select('B6'), 'SWIR2':image.multiply(0.0001).select('B7')}).rename('AWEIsh').float()
+                                              
+  return image.addBands(ndvi).addBands(mndwi).addBands(evi).addBands(aweish);
+};
