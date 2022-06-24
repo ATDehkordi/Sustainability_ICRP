@@ -1,0 +1,27 @@
+var GetNames = function(prefix) {
+  var seq = ee.List.sequence(1, bandNames.length());
+  return seq.map(function(b) {
+    return ee.String(prefix).cat(ee.Number(b).int());
+  });
+};
+var PCA = function(centered, scale, region) {
+  var arrays = centered.toArray();
+  var covar = arrays.reduceRegion({
+    reducer: ee.Reducer.centeredCovariance(),
+    geometry: region,
+    scale: scale,
+    maxPixels: 1e9
+  });
+  var covarArray = ee.Array(covar.get('array'));
+  var eigens = covarArray.eigen();
+  var eigenValues = eigens.slice(1, 0, 1);
+  var eigenVectors = eigens.slice(1, 1);
+  var arrayImage = arrays.toArray(1);
+  var principalComponents = ee.Image(eigenVectors).matrixMultiply(arrayImage);
+  var sdImage = ee.Image(eigenValues.sqrt())
+      .arrayProject([0]).arrayFlatten([GetNames('sd')]);
+  return principalComponents
+      .arrayProject([0])
+      .arrayFlatten([GetNames('pc')])
+      .divide(sdImage);
+};
