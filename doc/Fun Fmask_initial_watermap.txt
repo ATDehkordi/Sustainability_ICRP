@@ -1,0 +1,6 @@
+function Fmask_initial_watermap(image) {
+  var water = (1 << 2);
+  var qa = image.select('pixel_qa');
+  var mask = qa.bitwiseAnd(water).eq(0);
+  return mask.bitwiseNot();
+}
