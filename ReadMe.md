@@ -5,6 +5,7 @@
 
 # Here an iterative clustering-based refinement procedure is developed to generate training samples for supervised monitoring of surface water extent...
 ## The paper is published in Sustainability (MDPI)
+## The codes can only be used if the following article is cited:
 ## Paper Link: https://www.mdpi.com/2071-1050/14/13/8046
 
 
